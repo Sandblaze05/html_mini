@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>Tejas Chauhan 22BCT0317</title>
+        <link rel="stylesheet" href="22BCT0317_TejasChauhan_P2_L47.css">
+    </head>
+    <body>
+        <div class="header">
+            <h2>22BCT0317</h2>
+            <p>Tejas Chauhan</p>
+        </div>
+
+        <div id="navbar">
+            <a class="active" href="javascript:void(0)">Home</a>
+            <a href="javascript:void(0)">News</a>
+            <a href="javascript:void(0)">Contact</a>
+        </div>
+
+        <form action="/action_page.php" method="post">
+            <input style="margin-left: 10px;" type="text" name="fname" required>
+            <input type="submit" value="Submit">
+        </form>
+
+        <h1 id="hello">Hello world</h1>
+        <button style="margin-left: 10px;" type="button" onclick="document.getElementById('hello').style.color='red';">
+            Click
+        </button>
+
+        <form action="#" method="post" style="margin-top: 20px;">
+            <input style="margin-left: 10px;" type="text" id="fname" oninput="upperCase()">
+        </form>
+
+        <div class="big" onmouseover="mouseHover(this)" onmouseout="mouseLeave(this)">
+            Hover
+        </div>
+
+        <div class="big" style="margin-top: 10px;" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)">
+            Press
+        </div>
+
+        <h2>addEventListener()</h2>
+        <button style="margin-left: 10px;" id="myBtn" onclick="myFunction1()">Click</button>
+        <p style="font-size: small;">click the button to generate an alert</p>
+
+        <div class="big" onclick="date(this)">
+            Date
+        </div>
+
+        <div class="big" style="margin-top: 10px;" onclick="newDoc()">
+            Open vtop
+        </div>
+
+        <script>
+            window.onscroll = function() {myFunction()};
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } 
+                else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+
+            function newDoc() {
+                window.location.assign("https://vtop.vit.ac.in");
+            }
+
+            function upperCase() {
+                const x=document.getElementById("fname");
+                x.value=x.value.toUpperCase();
+            }
+
+            function mouseHover(id) {
+                id.innerHTML="Thanks";
+            }
+
+            function mouseLeave(id) {
+                id.innerHTML="Hover";
+            }
+
+            function mouseDown(id) {
+                id.innerHTML="Release";
+            }
+
+            function mouseUp(id) {
+                id.innerHTML="Press";
+            }
+
+            document.getElementById("myBtn").addEventListener("click", myFunction);
+
+            function myFunction1() {
+                alert ("Hello World!");
+            }
+
+            function date(id) {
+                const d=new Date();
+                id.innerHTML=d;
+            }
+        </script>
+    </body>
+</html>

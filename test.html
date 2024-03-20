@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Student Marks</title>
+</head>
+<body>
+<script>
+// Define a constructor function for StudentInfo
+function StudentInfo(name, marks) {
+    this.name = name;
+    this.marks = marks;
+}
+
+// Add a method to calculate the total marks
+StudentInfo.prototype.calculateTotalMarks = function() {
+    return this.marks.english/2 + this.marks.physics/2 + this.marks.chemistry/2 + this.marks.mathsBio/2;
+}
+
+// Add a method to get the grade
+StudentInfo.prototype.obtainGrade = function() {
+    let totalMarks = this.calculateTotalMarks();
+    if (totalMarks >= 90) {
+        return "S";
+    } else if (totalMarks >= 80) {
+        return "A";
+    } else if (totalMarks >= 70) {
+        return "B";
+    } else if (totalMarks >= 60) {
+        return "C";
+    } else if (totalMarks >= 50) {
+        return "D";
+    } else {
+        return "F";
+    }
+}
+
+// Create an instance of StudentInfo
+var studentInfo = new StudentInfo();
+
+// Prompt for student details
+studentInfo.name = prompt("Enter Student Name");
+studentInfo.marks = {
+    english: parseInt(prompt("Enter English Marks(out of 200)")),
+    physics: parseInt(prompt("Enter Physics Marks(out of 200)")),
+    chemistry: parseInt(prompt("Enter Chemistry Marks(out of 200)")),
+    mathsBio: parseInt(prompt("Enter Maths/Bio Marks(out of 200)"))
+};
+
+// Output the grade
+document.write("Grade is " + studentInfo.obtainGrade());
+</script>
+</body>
+</html>
